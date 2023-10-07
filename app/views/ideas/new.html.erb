@@ -1,9 +1,12 @@
-<h1>New idea</h1>
+<div class="px-4 py-5 my-5 text-center">
 
-<%= render "form", idea: @idea %>
+  <h1>New cursed emoji</h1>
 
-<br>
+  <%= render "form", idea: @idea %>
 
-<div>
-  <%= link_to "Back to ideas", ideas_path %>
+  <br>
+
+  <div>
+    <%= link_to "Back to ideas", ideas_path, { class: "btn btn-dark"} %>
+  </div>
 </div>

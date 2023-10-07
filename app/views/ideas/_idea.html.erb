@@ -1,17 +1,18 @@
 <div id="<%= dom_id idea %>">
-  <p>
-    <strong>Name:</strong>
-    <%= idea.name %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= idea.description %>
-  </p>
-
-  <p>
-    <strong>Picture:</strong>
-    <%= image_tag(idea.picture_url, width: 600) if idea.picture? %>
-  </p>
-
+  <div class="card m-3" style="width: 18rem; height: 527px">
+    <div class="d-flex align-items-center"style="height: 351px">
+      <img class="card-img-top" src="<%= idea.picture_url if idea.picture? %>" alt="Card image cap">
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"><%= idea.name %></h5>
+      <p class="card-text"><%= idea.description %></p>
+      <% if current_page? "/ideas" %>
+        <%= link_to "Show this idea", idea, { class: "btn btn-dark" } %>
+      <% end %>
+      <% if current_page? "/ideas/#{idea.id}" %>
+        <%= link_to "Edit emoji", edit_idea_path(idea), { class: "btn btn-dark" } %>
+        <%= button_to "Remove emoji (too cursed)", idea, method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-dark"  %>
+      <% end %>
+    </div>
+  </div>
 </div>
